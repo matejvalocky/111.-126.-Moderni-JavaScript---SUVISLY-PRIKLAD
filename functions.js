@@ -35,7 +35,7 @@ const generateHTMLstructure = function(oneName){
 
 
     button.addEventListener("click", function(event){
-        removeNames(oneName.id)
+        removeNames(names, oneName.id)
         saveNames(names) // vytvorenie alebo upgradovanie dat v localStorage
     })
 
@@ -49,13 +49,13 @@ const generateHTMLstructure = function(oneName){
 
 // podľa ID nájdeme index daného mena a pomocou slice ho odstraníme
 
-const removeNames = function(id){
-    const index = names.findIndex(function(nameWantToCheck){
+const removeNames = function(ourNames, id){
+    const index = ourNames.findIndex(function(nameWantToCheck){
         return nameWantToCheck.id === id
     })
 
     if(index > -1){
-        names.splice(index, 1)
+        ourNames.splice(index, 1)
     } 
 }
 
