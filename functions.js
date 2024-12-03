@@ -11,3 +11,12 @@ const getSavedNames = function (){
     return [] // prazdne pole
   }
 }
+
+
+// funkcia pre použitie odoslania formulára, ukladá do localStorage meno z formulára
+
+
+// uloženie mien
+const saveNames = function(oneName){
+    localStorage.setItem("names", JSON.stringify(oneName))
+}
