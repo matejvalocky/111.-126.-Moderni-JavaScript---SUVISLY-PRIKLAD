@@ -37,6 +37,7 @@ const generateHTMLstructure = function(oneName){
     button.addEventListener("click", function(event){
         removeNames(names, oneName.id)
         saveNames(names) // vytvorenie alebo upgradovanie dat v localStorage
+        toListAgain()
     })
 
 
@@ -59,3 +60,15 @@ const removeNames = function(ourNames, id){
     } 
 }
 
+// ak zmažeme nejaké meno z localStorage, tak táto funkcia zabezpečí opätovné vypísanie localStorage (teda vypísanie bez zmazaného mena na stránke
+
+const toListAgain = function(){
+    document.querySelector(".list-names").innerHTML = ""
+
+    let newData = getSavedNames()
+    
+    newData.forEach(function(onlyOneName){
+        const newContent = generateHTMLstructure(onlyOneName)
+        document.querySelector(".list-names").appendChild(newContent)
+    })
+}
