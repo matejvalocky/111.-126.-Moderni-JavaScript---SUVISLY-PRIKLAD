@@ -26,6 +26,7 @@ myForm.addEventListener("submit", function(event){
 let buttonToList = document.querySelector(".to-list")
 
 buttonToList.addEventListener("click", function(event){
+    document.querySelector(".list-names").innerHTML = "" // zabraňujeme dvojitému vypisovaniu
     let namesFromStorage = localStorage.getItem("names")
     let namesFromStorageJSON = JSON.parse(namesFromStorage)
 
