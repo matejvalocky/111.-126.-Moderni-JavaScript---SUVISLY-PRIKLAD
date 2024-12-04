@@ -70,7 +70,7 @@ input[type="submit"]:hover{
     box-shadow: 2px 2px 10px black;
 }
 
-.list-names span{
+.list-names a{
     margin-left: 20px;
     font-size: 25px;
 }
