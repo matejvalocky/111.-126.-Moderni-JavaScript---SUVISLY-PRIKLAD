@@ -43,6 +43,13 @@ const generateHTMLstructure = function(oneName){
 
 
     newSpan.textContent = oneName.firstName
+
+    if (oneName.adult === true){
+        newSpan.classList.add("adult")
+    } else {
+        newSpan.classList.add("no-adult")
+    }
+    
     newDiv.appendChild(newSpan)
     return newDiv
 }

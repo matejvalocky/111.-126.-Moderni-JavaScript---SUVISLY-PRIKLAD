@@ -6,16 +6,21 @@ const names = getSavedNames()
 
 // Odoslanie formulára a uloženie do localStorage pomocou premennej names
 let myForm = document.querySelector("#test-form")
+let myCheckbox = document.querySelector(".my-checkbox")
+
+
+
 myForm.addEventListener("submit", function(event){
     event.preventDefault()
 
     names.push({
         id: uuidv4(),
-        firstName: event.target.elements.firstName.value // hodnota políčka
+        firstName: event.target.elements.firstName.value, // hodnota políčka
+        adult: myCheckbox.checked
     })
 
     event.target.elements.firstName.value = ""
-
+    myCheckbox.checked = false // zrušenie zaškrtnutia
     saveNames(names)
 
 })
@@ -30,8 +35,11 @@ buttonToList.addEventListener("click", function(event){
     let namesFromStorage = localStorage.getItem("names")
     let namesFromStorageJSON = JSON.parse(namesFromStorage)
 
+
     namesFromStorageJSON.forEach(function(myName){
        const oneNameHTML = generateHTMLstructure(myName)
        document.querySelector(".list-names").appendChild(oneNameHTML)
     })
+
+
 })
