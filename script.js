@@ -43,3 +43,11 @@ buttonToList.addEventListener("click", function(event){
 
 
 })
+
+
+
+// reload stránky po zmene v localStorage
+window.addEventListener("storage", function(){
+    location.reload()
+})
+
